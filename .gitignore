@@ -27,3 +27,24 @@
 *.i*86
 *.x86_64
 *.hex
+
+# Configure artefacts
+Makefile
+config.h
+config.log
+config.status
+stamp-h1
+.deps
+
+# VIM Backups
+*~
+.*.swp
+
+# Build artefacts
+rc
+tripping
+mksignal
+sigmsgs.[ch]
+mkstatval
+statval.h
+autom4te.cache
