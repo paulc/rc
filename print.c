@@ -303,10 +303,9 @@ static void fprint_flush(Format *format, size_t ignore) {
 	writeall(format->u.n, buf, n);
 }
 
-extern int fprint(int fd, const char *fmt,...) {
+extern int vfprint(int fd, const char *fmt, va_list ap) {
 	char buf[1024];
 	Format format;
-	va_list ap;
 
 	format.buf	= buf;
 	format.bufbegin	= buf;
@@ -315,13 +314,21 @@ extern int fprint(int fd, const char *fmt,...) {
 	format.flushed	= 0;
 	format.u.n	= fd;
 
-	va_start(ap, fmt);
 	__va_copy(format.args, ap);
 	printfmt(&format, fmt);
-	va_end(format.args);
 
 	fprint_flush(&format, 0);
 	return format.flushed;
+}
+
+
+extern int fprint(int fd, const char *fmt,...) {
+    int ret;
+    va_list ap;
+	va_start(ap, fmt);
+    ret = vfprint(fd,fmt,ap);
+    va_end(ap);
+    return ret;
 }
 
 static void memprint_grow(Format *format, size_t more) {
