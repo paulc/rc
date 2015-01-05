@@ -38,12 +38,15 @@ extern List *listcpy(List *s, void *(*alloc)(size_t)) {
 	return top;
 }
 
-/* Length of list */
+/* 
+   Length of flattened list (including separators)
+   (sl is separator length)
+*/
 
-extern size_t listlen(List *s) {
+extern size_t listlen(List *s, size_t sl) {
 	size_t size;
 	for (size = 0; s != NULL; s = s->n)
-		size += strlen(s->w) + 1;
+		size += strlen(s->w) + sl;
 	return size;
 }
 

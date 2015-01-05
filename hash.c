@@ -230,7 +230,7 @@ extern void initenv(char **envp) {
 
 static char *neverexport[] = {
 	"apid", "apids", "bqstatus", "cdpath", "home",
-	"ifs", "path", "pid", "status", "*"
+	"ifs", "ofs", "path", "pid", "status", "*"
 };
 
 /* for a few variables that have default values, we export them only

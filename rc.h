@@ -273,7 +273,7 @@ extern const char nw[], dnw[];
 /* list.c */
 extern void listfree(List *);
 extern List *listcpy(List *, void *(*)(size_t));
-extern size_t listlen(List *);
+extern size_t listlen(List *, size_t);
 extern int listnel(List *);
 
 /* match.c */
@@ -305,6 +305,7 @@ extern int fmtprint(Format *, const char *,...);
 extern void fmtappend(Format *, const char *, size_t);
 extern void fmtcat(Format *, const char *);
 extern int fprint(int fd, const char *fmt,...);
+extern int vfprint(int fd, const char *fmt, va_list ap);
 extern char *mprint(const char *fmt,...);
 extern char *nprint(const char *fmt,...);
 /*
