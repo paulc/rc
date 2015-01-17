@@ -6,6 +6,23 @@
 #include "rc.h"
 #include "addon.h"
 
+void b_incr(char **av) {
+    if (*++av == NULL) {
+        rc_error("syntax error");
+    }
+    char *name = *av;
+    long incr = (*++av == NULL) ? 1 : atol(*av);
+    List *l = varlookup(name);
+    long v = (l == NULL) ? 0 : atol(l->w) + incr;
+    List *r = nnew(List);
+    r->w = nprint("%ld",v);
+    r->m = NULL;
+    r->n = NULL;
+    varassign(name,r,FALSE);
+	set(TRUE);
+}
+
+
 void b_sum(char **av) {
 	long sum = 0;
 

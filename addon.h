@@ -22,9 +22,11 @@
 #if RC_ADDON
 
 #define ADDONS \
+    { b_incr, "incr" }, \
 	{ b_sum,	"+" }, \
 	{ b_prod, "x" },
 
+extern void b_incr(char **av);
 extern void b_sum(char **av);
 extern void b_prod(char **av);
 
