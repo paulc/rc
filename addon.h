@@ -23,10 +23,16 @@
 
 #define ADDONS \
     { b_incr, "incr" }, \
-	{ b_sum,	"+" }, \
+    { b_gt,   "gt" }, \
+    { b_lt,   "lt" }, \
+    { b_eq,   "eq" }, \
+	{ b_sum,  "+" }, \
 	{ b_prod, "x" },
 
 extern void b_incr(char **av);
+extern void b_gt(char **av);
+extern void b_lt(char **av);
+extern void b_eq(char **av);
 extern void b_sum(char **av);
 extern void b_prod(char **av);
 

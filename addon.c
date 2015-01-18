@@ -13,7 +13,7 @@ void b_incr(char **av) {
     char *name = *av;
     long incr = (*++av == NULL) ? 1 : atol(*av);
     List *l = varlookup(name);
-    long v = (l == NULL) ? 0 : atol(l->w) + incr;
+    long v = ((l == NULL) ? 0 : atol(l->w)) + incr;
     List *r = nnew(List);
     r->w = nprint("%ld",v);
     r->m = NULL;
@@ -22,6 +22,35 @@ void b_incr(char **av) {
 	set(TRUE);
 }
 
+void b_gt(char **av) {
+    long a = (*++av == NULL) ? 0 : atol(*av);
+    long b = (*++av == NULL) ? 0 : atol(*av);
+    if (b > a) {
+        set(TRUE);
+    } else {
+        set(FALSE);
+    }
+}
+
+void b_lt(char **av) {
+    long a = (*++av == NULL) ? 0 : atol(*av);
+    long b = (*++av == NULL) ? 0 : atol(*av);
+    if (b < a) {
+        set(TRUE);
+    } else {
+        set(FALSE);
+    }
+}
+
+void b_eq(char **av) {
+    long a = (*++av == NULL) ? 0 : atol(*av);
+    long b = (*++av == NULL) ? 0 : atol(*av);
+    if (b == a) {
+        set(TRUE);
+    } else {
+        set(FALSE);
+    }
+}
 
 void b_sum(char **av) {
 	long sum = 0;
