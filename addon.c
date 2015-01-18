@@ -25,31 +25,19 @@ void b_incr(char **av) {
 void b_gt(char **av) {
     long a = (*++av == NULL) ? 0 : atol(*av);
     long b = (*++av == NULL) ? 0 : atol(*av);
-    if (b > a) {
-        set(TRUE);
-    } else {
-        set(FALSE);
-    }
+    set(a > b);
 }
 
 void b_lt(char **av) {
     long a = (*++av == NULL) ? 0 : atol(*av);
     long b = (*++av == NULL) ? 0 : atol(*av);
-    if (b < a) {
-        set(TRUE);
-    } else {
-        set(FALSE);
-    }
+    set(a < b);
 }
 
 void b_eq(char **av) {
     long a = (*++av == NULL) ? 0 : atol(*av);
     long b = (*++av == NULL) ? 0 : atol(*av);
-    if (b == a) {
-        set(TRUE);
-    } else {
-        set(FALSE);
-    }
+    set(a == b);
 }
 
 void b_sum(char **av) {
