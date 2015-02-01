@@ -39,6 +39,10 @@ extern void inithash() {
 		vpp->name = fpp->name = NULL;
 }
 
+extern void freehash() {
+    efree(env);
+}
+
 #define ADV()   {if ((c = *s++) == '\0') break;}
 
 /* hash function courtesy of paul haahr */

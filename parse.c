@@ -579,6 +579,11 @@ void initparse() {
 	nolist = treecpy(mk(nVar, mk(nWord,"ifs", NULL, FALSE)), ealloc);
 }
 
+void freeparse() {
+    treefree(star);
+    treefree(nolist);
+}
+
 #line 583 "y.tab.c"
 /* allocate initial stack or double stack size, up to YYMAXDEPTH */
 static int yygrowstack()

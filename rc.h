@@ -247,6 +247,7 @@ extern void fnassign_string(char *);
 extern void fnrm(char *);
 extern void initenv(char **);
 extern void inithash(void);
+extern void freehash(void);
 extern void set_exportable(char *, bool);
 extern void setsigdefaults(bool);
 extern void inithandler(void);
@@ -323,6 +324,7 @@ extern char *nprint(const char *fmt,...);
 extern Node *parsetree;
 extern int yyparse(void);
 extern void initparse(void);
+extern void freeparse(void);
 
 /* readline */
 extern volatile sig_atomic_t rl_active;

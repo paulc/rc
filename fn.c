@@ -117,6 +117,9 @@ extern void rc_exit(int stat) {
 		funcall(sig);
 		stat = getstatus();
 	}
+    freeparse();
+    freeinput();
+    freehash();
 	exit(stat);
 }
 

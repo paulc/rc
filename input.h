@@ -1,5 +1,6 @@
 /* initialize the input stack */
 extern void initinput(void);
+extern void freeinput(void);
 
 /* push an input onto the stack */
 extern void pushfd(int);

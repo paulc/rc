@@ -167,6 +167,10 @@ extern void initinput() {
 	ugchar(EOF);
 }
 
+extern void freeinput() {
+    efree(istack);
+}
+
 /* push an input source onto the stack. set up a new input buffer, and set gchar() */
 
 static void pushcommon() {
